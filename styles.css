@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(19, 19, 19);
+}
+
+h1 {
+  color: rgb(240, 240, 240);
+  font-size: 2rem;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 2fr;
+  width: 100%;
+  height: 100vh;
+}
+
+.menu {
+  position: relative;
+  background: rgb(22, 22, 22);
+}
+
+#rgbCode {
+  margin: 20px;
+  text-align: center;
+  color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+#container-color {
+  padding: 2rem;
+}
+
+#colored-div {
+  width: auto;
+  height: 40rem;
+  border-radius: 10px;
+  animation: scaleAnim 1s, 2s;
+}
+
+@keyframes scaleAnim {
+  from {
+    opacity: 0;
+    scale: 0%;
+  }
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background: transparent;
+  border: 2px solid rgb(235, 235, 235);
+  color: rgb(235, 235, 235);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(235, 235, 235);
+  color: rgb(27, 27, 27);
+  transition: 1s;
+}
+/* -----------------------------------------SNACKBAR----------------------------------------- */
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #00c05a;
+  color: rgb(247, 247, 247);
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+/*----------------------------------------- RESPONSIVE--------------------------------------------- */
+@media screen and (max-width: 500px) {
+  .container {
+    display: grid;
+    grid-template-columns: max-content;
+    width: auto;
+  }
+
+  .menu {
+    width: 100vw;
+  }
+
+  #colored-div {
+    height: 15rem;
+  }
+}
